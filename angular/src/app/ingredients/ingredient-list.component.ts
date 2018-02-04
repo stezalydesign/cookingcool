@@ -24,6 +24,14 @@ export class IngredientListComponent {
       'id': 3,
       'name': 'Tomato',
     },
+    {
+      'id': 4,
+      'name': 'Mushroom',
+    },
+    {
+      'id': 5,
+      'name': 'Pepper',
+    },
   ];
 
   constructor() {
