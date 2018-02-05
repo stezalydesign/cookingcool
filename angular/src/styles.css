@@ -3,12 +3,12 @@ li {
   font-size: large;
 }
 
-div.panel-heading {
+div.card-header {
   font-size: x-large;
 }
 
 
-.panel {
+.card {
   margin-bottom: 20px;
   background-color: #fff;
   border: 1px solid transparent;
