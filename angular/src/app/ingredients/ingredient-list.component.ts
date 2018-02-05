@@ -1,41 +1,22 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Ingredient} from './ingredient';
+import {IngredientService} from './ingredient.service';
 
 @Component({
   selector: 'app-ingredients',
   templateUrl: './ingredient-list.component.html',
   styleUrls: ['./ingredient-list.component.css']
 })
-export class IngredientListComponent {
+export class IngredientListComponent implements OnInit {
 
   pageTitle = 'Ingredient List';
   _listFilter: string;
   filteredIngredients: Ingredient[];
-  ingredients: Ingredient[] = [
-    {
-      'id': 1,
-      'name': 'Carrot',
-    },
-    {
-      'id': 2,
-      'name': 'Onion',
-    },
-    {
-      'id': 3,
-      'name': 'Tomato',
-    },
-    {
-      'id': 4,
-      'name': 'Mushroom',
-    },
-    {
-      'id': 5,
-      'name': 'Pepper',
-    },
-  ];
+  ingredients: Ingredient[];
+  errorMessage: string;
 
-  constructor() {
-    this.filteredIngredients = this.ingredients;
+  constructor(private _ingredientService: IngredientService) {
+
   }
 
   get listFilter(): string {
@@ -52,5 +33,15 @@ export class IngredientListComponent {
     filterBy = filterBy.toLocaleLowerCase();
     return this.ingredients.filter(
       (ingredient: Ingredient) => ingredient.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+  }
+
+  ngOnInit(): void {
+
+    this._ingredientService.getIngredients()
+      .subscribe(ingredients => {
+          this.ingredients = ingredients;
+          this.filteredIngredients = this.ingredients;
+        },
+        error => this.errorMessage = <any> error);
   }
 }
