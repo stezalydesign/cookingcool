@@ -272,3 +272,15 @@ input[type="search"] {
   .table-striped > tbody > tr:nth-of-type(odd) {
   background-color: #f9f9f9; 
   }}	
+input.rounded {
+	border: 1px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border-color: #ffC900;
+	font-size: 20px;
+	padding: 4px 7px;
+	outline: 0;
+	-webkit-appearance: none;
+}
+
