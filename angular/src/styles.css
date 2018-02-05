@@ -5,6 +5,7 @@ li {
 
 div.card-header {
   font-size: x-large;
+	text-align: center
 }
 
 
@@ -17,13 +18,12 @@ div.card-header {
           box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
 }
 
-.card-primary {
-  border-color: #337ab7;
-}
+
 .card-primary > .card-header {
   color: #fff;
   background-color: #337ab7;
   border-color: #337ab7;
+	
 }
 .card-primary > .card-header + .card-collapse > .card.card-block {
   border-top-color: #337ab7;
