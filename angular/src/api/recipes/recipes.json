@@ -32,5 +32,20 @@
       }
     ],
     "directions": "Take all the ingredients and put all of them on the plate. Be sure they are looking good."
+  },
+  {
+    "id": 3,
+    "name": "Vegan Pączek",
+    "ingredients": [
+      {
+        "id": 7,
+        "name": "Magic Ingredient #1"
+      },
+      {
+        "id": 8,
+        "name": "Magic Ingredient #2"
+      }
+    ],
+    "directions": "Ask Marta, only she knows the secret."
   }
 ]

@@ -22,5 +22,13 @@
   {
     "id": 6,
     "name": "Broccoli"
+  },
+  {
+    "id": 7,
+    "name": "Magic Ingredient #1"
+  },
+  {
+    "id": 8,
+    "name": "Magic Ingredient #2"
   }
 ]
