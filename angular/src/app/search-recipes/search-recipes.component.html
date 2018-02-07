@@ -11,7 +11,7 @@
 
   <div class="table-responsive">
 
-    <table class="table table-striped" *ngIf="recipes && recipes.length">
+    <table class="table" *ngIf="recipes && recipes.length">
       <tr *ngFor="let recipe of filteredRecipes">
         <td>{{recipe.name}}</td>
       </tr>
