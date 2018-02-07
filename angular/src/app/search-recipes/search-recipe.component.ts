@@ -9,14 +9,12 @@ import {RecipeService} from './recipe.service';
 })
 export class SearchRecipesComponent implements OnInit {
 
-  pageTitle = 'Recipe Search';
   _listFilter: string;
   filteredRecipes: Recipe[];
   recipes: Recipe[];
   errorMessage: string;
 
   constructor(private _recipeService: RecipeService) {
-
   }
 
   get listFilter(): string {
@@ -25,7 +23,7 @@ export class SearchRecipesComponent implements OnInit {
 
   set listFilter(value: string) {
     this._listFilter = value;
-    this.filteredRecipes = this._listFilter ? this.performFilter(this.listFilter) : this.recipes;
+    this.filteredRecipes = this._listFilter ? this.performFilter(this.listFilter) : [];
   }
 
   private performFilter(filterBy: string): Recipe[] {
@@ -40,7 +38,6 @@ export class SearchRecipesComponent implements OnInit {
     this._recipeService.getRecipes()
       .subscribe(recipes => {
           this.recipes = recipes;
-          this.filteredRecipes = this.recipes;
         },
         error => this.errorMessage = <any> error);
   }
