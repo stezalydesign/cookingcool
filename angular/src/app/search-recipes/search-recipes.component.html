@@ -10,13 +10,11 @@
   </div>
 
   <div class="table-responsive">
-
-    <table class="table" *ngIf="recipes && recipes.length">
-      <tr *ngFor="let recipe of filteredRecipes">
-        <td>{{recipe.name}}</td>
-      </tr>
-    </table>
-
+    <div class="row">
+      <div *ngFor="let recipe of filteredRecipes" class="col-md-4 square-box">
+        <div style="background: white">{{ recipe.name }}</div>
+      </div>
+    </div>
   </div>
 
 </div>

@@ -47,5 +47,20 @@
       }
     ],
     "directions": "Ask Marta, only she knows the secret."
+  },
+  {
+    "id": 4,
+    "name": "Recipe #4",
+    "ingredients": [
+      {
+        "id": 5,
+        "name": "Pepper"
+      },
+      {
+        "id": 6,
+        "name": "Broccoli"
+      }
+    ],
+    "directions": "I don't know, just wash them and eat! :D"
   }
 ]
