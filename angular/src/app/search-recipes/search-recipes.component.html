@@ -3,18 +3,25 @@
   <div class="card-block">
     <div class="row">
       <div class="centralized-content">
-        <input type="text" class="rounded"
-               [(ngModel)]="listFilter "/>
+        <input type="text" class="rounded" [(ngModel)]="listFilter "/>
       </div>
     </div>
   </div>
 
   <div class="table-responsive">
+
     <div class="row">
-      <div *ngFor="let recipe of filteredRecipes" class="col-md-4 square-box">
-        <div style="background: white">{{ recipe.name }}</div>
+
+      <div *ngFor="let recipe of filteredRecipes"
+           class="col-md-4 square-box"
+           [ngStyle]="{'background': 'url(' + recipe.imageUrl + ') no-repeat center center', 'background-size': 'cover'}">
+
+        <div class="square-content" style="color: #ffC900; font-size: 30px">{{ recipe.name }}</div>
+
       </div>
+
     </div>
+
   </div>
 
 </div>
