@@ -1,9 +1,10 @@
 import {Ingredient} from './ingredient';
 
-export interface Recipe {
+export class Recipe {
 
   id: number;
   name: string;
   ingredients: Ingredient[];
   directions: string;
+  imageUrl: string;
 }

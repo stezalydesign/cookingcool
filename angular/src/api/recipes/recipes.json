@@ -12,7 +12,8 @@
         "name": "Onion"
       }
     ],
-    "directions": "Grill the carrots. After grilling them, fry the onions."
+    "directions": "Grill the carrots. After grilling them, fry the onions.",
+    "imageUrl": "https://static.pexels.com/photos/568370/pexels-photo-568370.jpeg"
   },
   {
     "id": 2,
@@ -31,7 +32,8 @@
         "name": "Mushroom"
       }
     ],
-    "directions": "Take all the ingredients and put all of them on the plate. Be sure they are looking good."
+    "directions": "Take all the ingredients and put all of them on the plate. Be sure they are looking good.",
+    "imageUrl": "https://static.pexels.com/photos/539451/pexels-photo-539451.jpeg"
   },
   {
     "id": 3,
@@ -46,7 +48,8 @@
         "name": "Magic Ingredient #2"
       }
     ],
-    "directions": "Ask Marta, only she knows the secret."
+    "directions": "Ask Marta, only she knows the secret.",
+    "imageUrl": "https://static.pexels.com/photos/5928/salad-healthy-diet-spinach.jpg"
   },
   {
     "id": 4,
@@ -61,6 +64,7 @@
         "name": "Broccoli"
       }
     ],
-    "directions": "I don't know, just wash them and eat! :D"
+    "directions": "I don't know, just wash them and eat! :D",
+    "imageUrl": "https://static.pexels.com/photos/7765/food.jpg"
   }
 ]
