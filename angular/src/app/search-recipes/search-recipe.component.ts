@@ -23,14 +23,7 @@ export class SearchRecipesComponent implements OnInit {
 
   set listFilter(value: string) {
     this._listFilter = value;
-    this.filteredRecipes = this._listFilter ? this.performFilter(this.listFilter) : [];
-  }
-
-  private performFilter(filterBy: string): Recipe[] {
-
-    filterBy = filterBy.toLocaleLowerCase();
-    return this.recipes.filter(
-      (recipe: Recipe) => recipe.name.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    this.filteredRecipes = this._recipeService.filterRecipes(this._listFilter, this.recipes);
   }
 
   ngOnInit(): void {
