@@ -7,7 +7,10 @@ import {IngredientListComponent} from './ingredients/ingredient-list.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {SearchRecipesComponent} from './search-recipes/search-recipe.component';
-
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {AngularFireAuthModule} from 'angularfire2/auth';
+import {environment} from './../environments/environment';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import {SearchRecipesComponent} from './search-recipes/search-recipe.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]
