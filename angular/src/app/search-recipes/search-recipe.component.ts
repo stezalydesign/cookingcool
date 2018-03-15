@@ -14,7 +14,7 @@ export class SearchRecipesComponent implements OnInit {
   recipes: Recipe[];
   errorMessage: string;
 
-  constructor(private _recipeService: RecipeService) {
+  constructor(private recipeService: RecipeService) {
   }
 
   get listFilter(): string {
@@ -23,12 +23,12 @@ export class SearchRecipesComponent implements OnInit {
 
   set listFilter(value: string) {
     this._listFilter = value;
-    this.filteredRecipes = this._recipeService.filterRecipes(this._listFilter, this.recipes);
+    this.filteredRecipes = this.recipeService.filterRecipes(this._listFilter, this.recipes);
   }
 
   ngOnInit(): void {
 
-    this._recipeService.getRecipes()
+    this.recipeService.getRecipes()
       .subscribe(recipes => {
           this.recipes = recipes;
         },
