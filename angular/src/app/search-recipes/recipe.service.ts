@@ -1,18 +1,15 @@
 import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs/Observable';
-import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import {Recipe} from './recipe';
 import {map} from 'rxjs/operators';
+import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
 @Injectable()
 export class RecipeService {
 
-  // TODO when we stop using this recipes.json, we must revert the change in angular/.angular-cli.json
-  private _recipeUrl = './api/recipes/recipes.json';
-
-  constructor(private _httpClient: HttpClient) {
+  constructor(private angularFirestore: AngularFirestore) {
   }
 
   filterRecipes(searchString: string, recipes: Recipe[]): Recipe[] {
@@ -29,7 +26,6 @@ export class RecipeService {
     for (const recipe of recipes) {
 
       if (recipe.hasIngredient(searchString)) {
-        console.log(recipe.name + ' has ' + searchString);
         filteredRecipes.push(recipe);
       }
     }
@@ -38,11 +34,12 @@ export class RecipeService {
   }
 
   getRecipes(): Observable<Recipe[]> {
-    return this._httpClient.get<Recipe[]>(this._recipeUrl)
-      .do(next => console.log('All: ' + JSON.stringify(next)))
-      .pipe(
-        map(next => this.instantiateRecipes(next)),
-      )
+
+    const dbRecipesColLection: AngularFirestoreCollection<Recipe> = this.angularFirestore.collection('recipes');
+
+    return dbRecipesColLection.valueChanges().pipe(
+      map(next => this.instantiateRecipes(next)),
+    )
       .catch(this.handleError);
 
   }
@@ -56,12 +53,9 @@ export class RecipeService {
     }
 
     return recipes;
-
-
   }
 
-
-  private handleError(err: HttpErrorResponse) {
+  private handleError(err: Error) {
     console.log(err.message);
     return Observable.throw(err.message);
   }

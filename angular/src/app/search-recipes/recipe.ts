@@ -9,12 +9,21 @@ export class Recipe {
   imageUrl: string;
 
 
-  constructor(json: any) {
-    this.id = json.id;
-    this.name = json.name;
-    this.ingredients = json.ingredients;
-    this.directions = json.directions;
-    this.imageUrl = json.imageUrl;
+  constructor(object: any) {
+
+    this.id = object.id;
+    this.name = object.name;
+
+    const ingredients: Ingredient[] = [];
+
+    for (const name of object.ingredients) {
+      ingredients.push(new Ingredient(name));
+    }
+
+    this.ingredients = ingredients;
+
+    this.directions = object.directions;
+    this.imageUrl = object.imageUrl;
   }
 
   public hasIngredient(ingredientName: string): boolean {
@@ -27,6 +36,5 @@ export class Recipe {
     }
 
     return false;
-
   }
 }
