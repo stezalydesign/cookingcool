@@ -1,5 +1,4 @@
 import {Component} from '@angular/core';
-import {IngredientService} from './ingredients/ingredient.service';
 import {RecipeService} from './search-recipes/recipe.service';
 
 @Component({
@@ -10,7 +9,7 @@ import {RecipeService} from './search-recipes/recipe.service';
       <app-search-recipes></app-search-recipes>
     </div>
   `,
-  providers: [IngredientService, RecipeService]
+  providers: [RecipeService]
 })
 export class AppComponent {
 }

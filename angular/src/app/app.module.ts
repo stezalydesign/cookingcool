@@ -3,7 +3,6 @@ import {NgModule} from '@angular/core';
 
 
 import {AppComponent} from './app.component';
-import {IngredientListComponent} from './ingredients/ingredient-list.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {SearchRecipesComponent} from './search-recipes/search-recipe.component';
@@ -16,7 +15,6 @@ import {AngularFirestore} from 'angularfire2/firestore';
 @NgModule({
   declarations: [
     AppComponent,
-    IngredientListComponent,
     SearchRecipesComponent
   ],
   imports: [
