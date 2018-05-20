@@ -1,9 +1,7 @@
+import {throwError as observableThrowError, Observable} from 'rxjs';
+import {catchError, map} from 'rxjs/operators';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/do';
-import 'rxjs/add/operator/catch';
 import {Recipe} from './recipe';
-import {map} from 'rxjs/operators';
 import {AngularFirestore, AngularFirestoreCollection} from 'angularfire2/firestore';
 
 @Injectable()
@@ -39,8 +37,8 @@ export class RecipeService {
 
     return dbRecipesColLection.valueChanges().pipe(
       map(next => this.instantiateRecipes(next)),
-    )
-      .catch(this.handleError);
+    ).pipe(
+      catchError(this.handleError));
 
   }
 
@@ -57,7 +55,7 @@ export class RecipeService {
 
   private handleError(err: Error) {
     console.log(err.message);
-    return Observable.throw(err.message);
+    return observableThrowError(err.message);
   }
 
 }
